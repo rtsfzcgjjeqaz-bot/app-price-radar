@@ -8,7 +8,7 @@ export const apps: App[] = [
     name: 'ChatGPT',
     developer: 'OpenAI',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/4b/b9/c6/4bb9c6b6-4b41-6e6e-5ef1-b1f1f3b08f39/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/chatgpt.png',
     description: 'The official ChatGPT app by OpenAI.',
   },
   {
@@ -17,7 +17,7 @@ export const apps: App[] = [
     name: 'Notability',
     developer: 'Ginger Labs',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/eb/18/a2/eb18a225-4b6b-4d52-c77a-ef44e0ccc7ed/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/notability.png',
     description: 'Take notes, annotate PDFs, and sketch ideas.',
   },
   {
@@ -26,7 +26,7 @@ export const apps: App[] = [
     name: 'Notion',
     developer: 'Notion Labs, Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/93/4d/20934d9a-62d8-6f04-7d85-dd5dbed8d4e0/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/notion.png',
     description: 'Notes, docs, wikis, tasks — all in one workspace.',
   },
   {
@@ -35,7 +35,7 @@ export const apps: App[] = [
     name: 'Microsoft 365',
     developer: 'Microsoft Corporation',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/f4/82/a0f48288-5ddc-60b6-9abc-b35b9e710aed/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/microsoft-365.png',
     description: 'Word, Excel, PowerPoint and more.',
   },
   {
@@ -44,7 +44,7 @@ export const apps: App[] = [
     name: 'Grammarly',
     developer: 'Grammarly, Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/74/80/b274801c-4aa4-4b58-1c05-c18d5f2ca6a4/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/grammarly.png',
     description: 'Writing assistant for grammar, spelling, and style.',
   },
   {
@@ -53,7 +53,7 @@ export const apps: App[] = [
     name: 'Todoist',
     developer: 'Doist Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f5/66/2c/f5662c54-ea53-4e2a-9f48-f54c79a30c73/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/todoist.png',
     description: 'To-do list and task manager.',
   },
   {
@@ -62,7 +62,7 @@ export const apps: App[] = [
     name: 'Bear',
     developer: 'Shiny Frog Ltd.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/32/be/5032be1f-82dc-53bd-36a2-c74a2cbbea85/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/bear.png',
     description: 'Beautiful markdown notes and writing app.',
   },
   {
@@ -71,7 +71,7 @@ export const apps: App[] = [
     name: 'Things 3',
     developer: 'Cultured Code GmbH',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/c9/c7/2dc9c78f-3f8d-44e2-8c2a-52f4ac1ea7e2/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/things3.png',
     description: 'Award-winning personal task manager.',
   },
   {
@@ -80,7 +80,7 @@ export const apps: App[] = [
     name: 'Fantastical',
     developer: 'Flexibits Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/3c/aa/c63caa3a-3e57-7e78-8e49-de56bbde0c3a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/fantastical.png',
     description: 'Calendar and tasks with natural language parsing.',
   },
   {
@@ -89,7 +89,7 @@ export const apps: App[] = [
     name: 'Ulysses',
     developer: 'Ulysses GmbH & Co. KG',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/98/5a/e8985a52-f97c-7b23-3c9a-0bd5e6c67f7e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/ulysses.png',
     description: 'Professional writing app for authors.',
   },
   {
@@ -98,7 +98,7 @@ export const apps: App[] = [
     name: '1Password',
     developer: 'AgileBits',
     category: 'Utilities',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/2b/2e/c62b2e2e-ca1a-d3a0-0c20-e6e2cb5eca35/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/1password.png',
     description: "The world's most-loved password manager.",
   },
   {
@@ -107,7 +107,7 @@ export const apps: App[] = [
     name: 'Day One',
     developer: 'Automattic',
     category: 'Lifestyle',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/f2/ae/61f2aecd-7ff2-2e2d-3cbe-04de5b2a2982/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/day-one.png',
     description: 'Private journal and diary app.',
   },
   {
@@ -116,7 +116,7 @@ export const apps: App[] = [
     name: 'Drafts',
     developer: 'Agile Tortoise',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/c7/03/07c70371-3949-6e70-a0de-e23c0f5785e1/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/drafts.png',
     description: 'Where text starts. Quick capture and action.',
   },
   {
@@ -125,7 +125,7 @@ export const apps: App[] = [
     name: 'Obsidian',
     developer: 'Dynalist Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/a1/3f/a0a13f18-c8a0-1d8c-8a6f-8cfb5ee65d7a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/obsidian.png',
     description: 'A powerful knowledge base on your local device.',
   },
   {
@@ -134,7 +134,7 @@ export const apps: App[] = [
     name: 'Readwise Reader',
     developer: 'Readwise',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/9e/6c/3a9e6c2e-7e9e-6f4a-5c0a-8b0d6fbd9c93/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/readwise-reader.png',
     description: 'The reading app for the modern age.',
   },
   {
@@ -143,7 +143,7 @@ export const apps: App[] = [
     name: 'Craft',
     developer: 'Luki Lab Kft.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/66/39/07663949-c9fc-34c0-0e2f-49a282e25e12/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/craft.png',
     description: 'A new take on documents for Apple devices.',
   },
   // ── Music & Audio ──────────────────────────────────────────────────────────
@@ -153,7 +153,7 @@ export const apps: App[] = [
     name: 'Spotify',
     developer: 'Spotify AB',
     category: 'Music',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f7/55/e5/f755e5aa-0b6a-2f27-2e40-ad67c23a1b40/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/spotify.png',
     description: 'Enjoy music, podcasts, and more.',
   },
   {
@@ -162,7 +162,7 @@ export const apps: App[] = [
     name: 'Tidal',
     developer: 'Tidal Music AS',
     category: 'Music',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/72/55/e57255bb-7f4a-6b33-b1f1-9fa3e7c9e2e0/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/tidal.png',
     description: 'Hi-fi music streaming with exclusive content.',
   },
   {
@@ -171,7 +171,7 @@ export const apps: App[] = [
     name: 'Deezer',
     developer: 'Deezer SA',
     category: 'Music',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4e/3f/5f/4e3f5f5a-3f3f-4f3f-8f3f-3f3f3f3f3f3f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/deezer.png',
     description: 'Stream over 120 million songs.',
   },
   {
@@ -180,7 +180,7 @@ export const apps: App[] = [
     name: 'Overcast',
     developer: 'Overcast Radio, LLC',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/49/91/bd4991ec-7b3e-eee6-b748-2a4f9f9a5395/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/overcast.png',
     description: 'The best podcast app for iPhone.',
   },
   {
@@ -189,7 +189,7 @@ export const apps: App[] = [
     name: 'Pocket Casts',
     developer: 'Pocket Casts',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/17/df/3e17df4b-7083-dc01-0fe0-5c6ef2f8cd36/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/pocket-casts.png',
     description: 'Listen to podcasts, ad-free.',
   },
   // ── Design & Art ───────────────────────────────────────────────────────────
@@ -199,7 +199,7 @@ export const apps: App[] = [
     name: 'Procreate',
     developer: 'Savage Interactive',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/ac/87/12/ac8712b8-7f0c-7d3b-43d3-8ee0b8d0d523/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/procreate.png',
     description: 'The most powerful illustration and painting app.',
   },
   {
@@ -208,7 +208,7 @@ export const apps: App[] = [
     name: 'Canva',
     developer: 'Canva',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/3f/2e/3f/3f2e3fc8-1d6c-7949-3d4a-b8e88e1c4ad7/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/canva.png',
     description: 'Design anything. Publish anywhere.',
   },
   {
@@ -217,7 +217,7 @@ export const apps: App[] = [
     name: 'Pixelmator Pro',
     developer: 'UAB Pixelmator Team',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/11/b2/ae11b2d6-6a42-82c5-8bf6-0e12e8e1c6e8/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/pixelmator-pro.png',
     description: 'Powerful image editor for Mac and iPad.',
   },
   {
@@ -226,7 +226,7 @@ export const apps: App[] = [
     name: 'Linea Link',
     developer: 'The Iconfactory',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/7e/5d/c87e5d7b-66c5-5e19-a6a7-e5de96745a9c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/linea-link.png',
     description: 'Simple, distraction-free drawing app for iPad.',
   },
   {
@@ -235,7 +235,7 @@ export const apps: App[] = [
     name: 'Affinity Photo 2',
     developer: 'Serif Labs',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/b9/fb/13b9fb74-7ffa-6249-dddb-c4a06ea7dd14/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-placeholder.svg',
     description: 'Professional photo editing and retouching.',
   },
   {
@@ -244,7 +244,7 @@ export const apps: App[] = [
     name: 'Affinity Designer 2',
     developer: 'Serif Labs',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/af/0f/34af0f4e-b55e-0f93-8a33-61a7f98e6e06/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-placeholder.svg',
     description: 'Professional vector graphic design.',
   },
   // ── Photo & Video ──────────────────────────────────────────────────────────
@@ -254,7 +254,7 @@ export const apps: App[] = [
     name: 'Facetune',
     developer: 'Lightricks',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/53/d2/44/53d24430-2046-4ef2-a96a-f32a0f69b7ab/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/facetune.png',
     description: 'Professional photo editing for portraits.',
   },
   {
@@ -263,7 +263,7 @@ export const apps: App[] = [
     name: 'Adobe Lightroom',
     developer: 'Adobe Inc.',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5d/48/49/5d484951-b5a1-b4cb-65ae-f1b72cbe0eae/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/adobe-lightroom.png',
     description: 'Professional photo editing and organization.',
   },
   {
@@ -272,7 +272,7 @@ export const apps: App[] = [
     name: 'VSCO',
     developer: 'Visual Supply Company',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/79/d7/5b/79d75bba-d51a-8b70-cef3-ee71e1e41be6/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/vsco.png',
     description: 'Photo editor and creative community.',
   },
   {
@@ -281,7 +281,7 @@ export const apps: App[] = [
     name: 'Darkroom',
     developer: 'Gallery Technologies Inc.',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/29/f9/c5/29f9c5c5-1e09-ffc7-77cd-f14a2e7b04fd/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/darkroom.png',
     description: 'Fast photo and video editing.',
   },
   {
@@ -290,7 +290,7 @@ export const apps: App[] = [
     name: 'Halide Mark II',
     developer: 'Lux Optics Inc.',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/45/fb/76/45fb7629-0a0d-3e3c-4c79-7de45bdf7e0f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/halide.png',
     description: 'Professional RAW camera app.',
   },
   {
@@ -299,7 +299,7 @@ export const apps: App[] = [
     name: 'Luma AI',
     developer: 'Luma AI Inc.',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/5a/8b/4c5a8b3a-9e3e-4a3a-8c3a-3e3a3e3a3e3a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/luma-ai.png',
     description: 'AI-powered 3D capture and video generation.',
   },
   {
@@ -308,7 +308,7 @@ export const apps: App[] = [
     name: 'CapCut',
     developer: 'Bytedance Pte. Ltd',
     category: 'Photo & Video',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/33/b1/d2/33b1d278-c72c-8793-6c3a-cc78b9e2d8f3/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/capcut.png',
     description: 'All-in-one video editor and maker.',
   },
   // ── Entertainment & Streaming ───────────────────────────────────────────────
@@ -318,7 +318,7 @@ export const apps: App[] = [
     name: 'Netflix',
     developer: 'Netflix, Inc.',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/68/9c/2e/689c2ec0-2c52-4e29-8cdf-bebb4e77df55/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/netflix.png',
     description: 'Watch TV shows and movies anytime.',
   },
   {
@@ -327,7 +327,7 @@ export const apps: App[] = [
     name: 'YouTube Premium',
     developer: 'Google LLC',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/68/c3/d4/68c3d400-1429-9e56-e18c-e80e7e80ff43/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/youtube-premium.png',
     description: 'Ad-free YouTube with background play.',
   },
   {
@@ -336,7 +336,7 @@ export const apps: App[] = [
     name: 'Disney+',
     developer: 'Disney',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/c0/c1/6bc0c174-27ca-e849-b692-13b71a8b9f1c/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/disney-plus.png',
     description: 'Disney, Pixar, Marvel, Star Wars & more.',
   },
   {
@@ -345,7 +345,7 @@ export const apps: App[] = [
     name: 'Max',
     developer: 'Warner Bros.',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/66/2e/2e/662e2e5a-3f3f-3f3f-3f3f-3f3f3f3f3f3f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/hbo-max.png',
     description: 'Stream HBO, Warner Bros., DC, and more.',
   },
   {
@@ -354,7 +354,7 @@ export const apps: App[] = [
     name: 'Amazon Prime Video',
     developer: 'AMZN Mobile LLC',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/e8/51/c0e85107-df5b-3c3d-b8bc-0a1eeab0ffb1/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/amazon-prime.png',
     description: 'Watch movies & TV series on Prime Video.',
   },
   {
@@ -363,7 +363,7 @@ export const apps: App[] = [
     name: 'Apple TV+',
     developer: 'Apple',
     category: 'Entertainment',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/14/e3/cd/14e3cd3c-f58e-c5e1-0a7a-9a9e5e5b5a5a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/apple-tv.png',
     description: 'Original shows and movies from Apple.',
   },
   // ── Health & Fitness ────────────────────────────────────────────────────────
@@ -373,7 +373,7 @@ export const apps: App[] = [
     name: 'Headspace',
     developer: 'Headspace Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/f4/6e/eaf46ed0-6e20-26e8-1c6c-e39def6da1e7/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/headspace.png',
     description: 'Meditation and mindfulness for any mind.',
   },
   {
@@ -382,7 +382,7 @@ export const apps: App[] = [
     name: 'Calm',
     developer: 'Calm.com, Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/7e/b2/427eb2fc-33aa-c2c8-3c30-20db1d7c68ea/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/calm.png',
     description: 'Sleep, meditate, relax.',
   },
   {
@@ -391,7 +391,7 @@ export const apps: App[] = [
     name: 'Strava',
     developer: 'Strava Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/d2/1f/89d21f59-5a5d-63a7-cf4f-47dbbc94b0bc/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/strava.png',
     description: 'Running and cycling GPS tracker.',
   },
   {
@@ -400,7 +400,7 @@ export const apps: App[] = [
     name: 'Noom',
     developer: 'Noom, Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/2f/1a/3c2f1a3c-1a1a-1a1a-1a1a-1a1a1a1a1a1a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/noom.png',
     description: 'Weight loss and behavior change program.',
   },
   {
@@ -409,7 +409,7 @@ export const apps: App[] = [
     name: 'Peloton',
     developer: 'Peloton Interactive, Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/0f/6e/8f0f6e8f-0f0f-0f0f-0f0f-0f0f0f0f0f0f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/peloton.png',
     description: 'Fitness classes at home or on the go.',
   },
   {
@@ -418,7 +418,7 @@ export const apps: App[] = [
     name: 'WHOOP',
     developer: 'WHOOP Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1a/2b/3c/1a2b3c4d-1a2b-3c4d-5e6f-7a8b9c0d1e2f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/whoop.png',
     description: 'Advanced fitness and recovery tracker.',
   },
   // ── Education ──────────────────────────────────────────────────────────────
@@ -428,7 +428,7 @@ export const apps: App[] = [
     name: 'Duolingo',
     developer: 'Duolingo',
     category: 'Education',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/c9/0a/d2c90a68-8b79-4d5d-b97c-f29f9dfb31e0/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg',
+    iconUrl: '/app-icons/duolingo.png',
     description: 'Learn languages for free, forever.',
   },
   {
@@ -437,7 +437,7 @@ export const apps: App[] = [
     name: 'Babbel',
     developer: 'Lesson Nine GmbH',
     category: 'Education',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/8b/9c/7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/babbel.png',
     description: 'Learn a new language effectively.',
   },
   {
@@ -446,7 +446,7 @@ export const apps: App[] = [
     name: 'MasterClass',
     developer: 'Yanka Industries, Inc.',
     category: 'Education',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/3b/4c/2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/masterclass.png',
     description: 'Learn from the world\'s best instructors.',
   },
   {
@@ -455,7 +455,7 @@ export const apps: App[] = [
     name: 'Skillshare',
     developer: 'Skillshare, Inc.',
     category: 'Education',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/4c/5d/3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/skillshare.png',
     description: 'Online learning for creative and curious people.',
   },
   {
@@ -464,7 +464,7 @@ export const apps: App[] = [
     name: 'Coursera',
     developer: 'Coursera',
     category: 'Education',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/5d/6e/4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/coursera.png',
     description: 'Courses from top universities and companies.',
   },
   // ── Finance ─────────────────────────────────────────────────────────────────
@@ -474,7 +474,7 @@ export const apps: App[] = [
     name: 'Robinhood',
     developer: 'Robinhood Markets, Inc.',
     category: 'Finance',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5d/6e/7f/5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/robinhood.png',
     description: 'Invest in stocks, ETFs, and crypto.',
   },
   {
@@ -483,7 +483,7 @@ export const apps: App[] = [
     name: 'Coinbase',
     developer: 'Coinbase, Inc.',
     category: 'Finance',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/7f/8a/6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/coinbase.png',
     description: 'Buy, sell, and manage cryptocurrency.',
   },
   {
@@ -492,7 +492,7 @@ export const apps: App[] = [
     name: 'YNAB',
     developer: 'You Need A Budget LLC',
     category: 'Finance',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7f/8a/9b/7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/ynab.png',
     description: 'Budget app for getting ahead financially.',
   },
   {
@@ -501,17 +501,17 @@ export const apps: App[] = [
     name: 'Empower',
     developer: 'Personal Capital Corporation',
     category: 'Finance',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/9b/0c/8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/personal-capital.png',
     description: 'Personal finance, investing & wealth management.',
   },
   // ── Social & Communication ──────────────────────────────────────────────────
   {
-    id: 'tweetbot',
+    id: 'ivory',
     appStoreId: '1527500834',
     name: 'Ivory',
     developer: 'Tapbots',
     category: 'Social Networking',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/12/98/6912982c-9b1c-7db1-5b36-0e8b6b6e5a37/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/ivory.png',
     description: 'Mastodon client crafted by Tapbots.',
   },
   {
@@ -520,7 +520,7 @@ export const apps: App[] = [
     name: 'Discord',
     developer: 'Discord Inc.',
     category: 'Social Networking',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c2/b7/de/c2b7de8d-4de0-5be2-b0a3-c2e62e1cc10c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/discord.png',
     description: 'Chat for gaming, communities, and friends.',
   },
   {
@@ -529,7 +529,7 @@ export const apps: App[] = [
     name: 'Telegram Premium',
     developer: 'Telegram FZ-LLC',
     category: 'Social Networking',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/c1/c3/43c1c378-1a1a-7a1a-1a1a-1a1a1a1a1a1a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/telegram-premium.png',
     description: 'Fast, secure messaging — premium features.',
   },
   // ── Developer & Utilities ───────────────────────────────────────────────────
@@ -539,7 +539,7 @@ export const apps: App[] = [
     name: 'Proxyman',
     developer: 'Proxyman LLC',
     category: 'Developer Tools',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9b/0c/1d/9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/proxyman.png',
     description: 'HTTP debugging proxy and network analyzer.',
   },
   {
@@ -548,7 +548,7 @@ export const apps: App[] = [
     name: 'Working Copy',
     developer: 'Anders Borum',
     category: 'Developer Tools',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0c/1d/2e/0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/working-copy.png',
     description: 'The full-featured Git client for iOS.',
   },
   {
@@ -557,7 +557,7 @@ export const apps: App[] = [
     name: 'Toolbox for Word',
     developer: 'Creativit- Mood Board & Vision',
     category: 'Utilities',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1d/2e/3f/1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-placeholder.svg',
     description: 'Templates and tools for Microsoft Word.',
   },
   // ── VPN & Security ──────────────────────────────────────────────────────────
@@ -567,7 +567,7 @@ export const apps: App[] = [
     name: 'NordVPN',
     developer: 'Nord Security',
     category: 'Utilities',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3f/4a/5b/3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/nordvpn.png',
     description: 'Fast and secure VPN service.',
   },
   {
@@ -576,7 +576,7 @@ export const apps: App[] = [
     name: 'ExpressVPN',
     developer: 'Express Technologies Ltd.',
     category: 'Utilities',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/5b/6c/4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/expressvpn.png',
     description: 'Private and secure VPN service.',
   },
   // ── Navigation & Travel ────────────────────────────────────────────────────
@@ -586,7 +586,7 @@ export const apps: App[] = [
     name: 'Google Maps',
     developer: 'Google LLC',
     category: 'Navigation',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/6c/7d/5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/google-maps.png',
     description: 'Real-time GPS navigation and maps.',
   },
   {
@@ -595,7 +595,7 @@ export const apps: App[] = [
     name: 'Waze',
     developer: 'Waze Inc.',
     category: 'Navigation',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/7d/8e/6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/waze.png',
     description: 'Community-based navigation app.',
   },
   // ── Lifestyle ─────────────────────────────────────────────────────────────
@@ -605,7 +605,7 @@ export const apps: App[] = [
     name: 'Airbnb',
     developer: 'Airbnb, Inc.',
     category: 'Travel',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/8e/9f/7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/airbnb.png',
     description: 'Find unique places to stay and experiences.',
   },
   {
@@ -614,7 +614,7 @@ export const apps: App[] = [
     name: 'TripIt',
     developer: 'Concur Technologies',
     category: 'Travel',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/9f/0a/8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/tripit.png',
     description: 'All your travel plans in one place.',
   },
   // ── Food & Lifestyle ──────────────────────────────────────────────────────
@@ -624,7 +624,7 @@ export const apps: App[] = [
     name: 'MyFitnessPal',
     developer: 'MyFitnessPal, Inc.',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/0a/1b/9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/mymacros.png',
     description: 'Calorie counter and nutrition tracker.',
   },
   {
@@ -633,7 +633,7 @@ export const apps: App[] = [
     name: 'Lifesum',
     developer: 'Lifesum AB',
     category: 'Health & Fitness',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/1b/2c/0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/lifesum.png',
     description: 'Healthy eating and diet tracker.',
   },
   // ── Games (premium/subscription) ──────────────────────────────────────────
@@ -643,7 +643,7 @@ export const apps: App[] = [
     name: 'Minecraft',
     developer: 'Mojang AB',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/2c/3d/1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/minecraft.png',
     description: 'The original open-world survival game.',
   },
   {
@@ -652,7 +652,7 @@ export const apps: App[] = [
     name: 'Roblox',
     developer: 'Roblox Corporation',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2c/3d/4e/2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/roblox.png',
     description: 'Millions of experiences with friends.',
   },
   {
@@ -661,7 +661,7 @@ export const apps: App[] = [
     name: 'Monument Valley',
     developer: 'ustwo games',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/4e/5f/3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/monument-valley.png',
     description: 'Illusory architecture and impossible geometry.',
   },
   {
@@ -670,7 +670,7 @@ export const apps: App[] = [
     name: "Alto's Odyssey",
     developer: 'Snowman',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4e/5f/6a/4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/alto-odyssey.png',
     description: 'A breathtaking endless runner.',
   },
   {
@@ -679,7 +679,7 @@ export const apps: App[] = [
     name: 'Bloons TD 6',
     developer: 'Ninja Kiwi',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/6a/7b/5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/bloons-td6.png',
     description: 'Addictive tower defense game.',
   },
   {
@@ -688,7 +688,7 @@ export const apps: App[] = [
     name: 'Apple Arcade',
     developer: 'Apple',
     category: 'Games',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/7b/8c/6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/apple-arcade.png',
     description: 'Unlimited access to 200+ premium games.',
   },
   // ── Reading & Reference ────────────────────────────────────────────────────
@@ -698,7 +698,7 @@ export const apps: App[] = [
     name: 'Kindle',
     developer: 'AMZN Mobile LLC',
     category: 'Books',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/8c/9d/7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/kindle.png',
     description: 'Read millions of eBooks on any device.',
   },
   {
@@ -707,7 +707,7 @@ export const apps: App[] = [
     name: 'Audible',
     developer: 'Audible, Inc.',
     category: 'Books',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/9d/0e/8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/audible.png',
     description: 'Audiobooks and podcasts from Audible.',
   },
   {
@@ -716,7 +716,7 @@ export const apps: App[] = [
     name: 'Scribd',
     developer: 'Scribd Inc.',
     category: 'Books',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9d/0e/1f/9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/scribd.png',
     description: 'Books, audiobooks, and documents.',
   },
   // ── AI Tools ─────────────────────────────────────────────────────────────
@@ -726,7 +726,7 @@ export const apps: App[] = [
     name: 'Midjourney',
     developer: 'Midjourney, Inc.',
     category: 'Design',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/1f/2a/0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-placeholder.svg',
     description: 'AI image generation from text prompts.',
   },
   {
@@ -735,7 +735,7 @@ export const apps: App[] = [
     name: 'Perplexity AI',
     developer: 'Perplexity AI Inc.',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/2a/3b/1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/perplexity.png',
     description: 'AI-powered search and answer engine.',
   },
   {
@@ -744,7 +744,7 @@ export const apps: App[] = [
     name: 'Microsoft Copilot',
     developer: 'Microsoft Corporation',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/3b/4c/2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/copilot-ms.png',
     description: 'Your everyday AI companion by Microsoft.',
   },
   {
@@ -753,7 +753,7 @@ export const apps: App[] = [
     name: 'Claude',
     developer: 'Anthropic',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/4c/5d/3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/claude-ai.png',
     description: "Anthropic's AI assistant.",
   },
   // ── Shopping ──────────────────────────────────────────────────────────────
@@ -763,7 +763,7 @@ export const apps: App[] = [
     name: 'Shopify',
     developer: 'Shopify Inc.',
     category: 'Business',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/5d/6e/4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/shopify.png',
     description: 'Run your business from anywhere.',
   },
   // ── Cloud Storage ─────────────────────────────────────────────────────────
@@ -773,7 +773,7 @@ export const apps: App[] = [
     name: 'Dropbox',
     developer: 'Dropbox',
     category: 'Productivity',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5d/6e/7f/5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/dropbox.png',
     description: 'Cloud storage and file sharing.',
   },
   {
@@ -782,7 +782,7 @@ export const apps: App[] = [
     name: 'Google One',
     developer: 'Google LLC',
     category: 'Utilities',
-    iconUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/7f/8a/6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg',
+    iconUrl: '/app-icons/google-one.png',
     description: 'Upgrade your Google experience with more storage.',
   },
 ];

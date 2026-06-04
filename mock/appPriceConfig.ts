@@ -71,7 +71,7 @@ export const appBasePrices: Record<string, number> = {
   'ynab':            14.99,
   'personal-capital': 9.99,
   // Social
-  'tweetbot':         1.99,
+  'ivory':            1.99,
   'discord':          9.99,
   'telegram-premium': 4.99,
   // Utilities

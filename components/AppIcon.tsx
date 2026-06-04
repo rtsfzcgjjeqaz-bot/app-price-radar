@@ -13,6 +13,8 @@ interface Props {
 export default function AppIcon({ src, alt, size = 40, className = '' }: Props) {
   const [imgSrc, setImgSrc] = useState(src);
 
+  const isLocal = imgSrc.startsWith('/');
+
   return (
     <Image
       src={imgSrc}
@@ -21,7 +23,7 @@ export default function AppIcon({ src, alt, size = 40, className = '' }: Props) 
       height={size}
       className={`bg-gray-100 object-cover rounded-xl ${className}`}
       onError={() => setImgSrc('/app-placeholder.svg')}
-      unoptimized={imgSrc === '/app-placeholder.svg'}
+      unoptimized={isLocal}
     />
   );
 }

@@ -37,7 +37,7 @@ export const countryPriceMultipliers: Record<string, number> = {
  * Key: countryCode, Value: set of appIds not available there.
  */
 export const unavailableApps: Record<string, string[]> = {
-  CN: ['spotify', 'netflix', 'youtube-premium', 'discord', 'robinhood', 'coinbase', 'nordvpn', 'expressvpn', 'roblox', 'tweetbot'],
+  CN: ['spotify', 'netflix', 'youtube-premium', 'discord', 'robinhood', 'coinbase', 'nordvpn', 'expressvpn', 'roblox', 'ivory'],
   RU: ['spotify', 'apple-tv', 'paypal'],
   TR: ['robinhood', 'coinbase'],
   IN: ['hbo-max'],
