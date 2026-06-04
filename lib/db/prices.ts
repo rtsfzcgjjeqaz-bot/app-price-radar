@@ -3,7 +3,7 @@ import { getAppPriceTable as mockGetAppPriceTable, getCountryAppPriceTable as mo
 import { countries as mockCountries } from '@/mock/countries';
 import { apps as mockApps } from '@/mock/apps';
 import { exchangeRates as mockRates } from '@/mock/exchangeRates';
-import type { PriceRow, CountryAppRow, ExchangeRate } from '@/types';
+import type { PriceRow, CountryAppRow, ExchangeRate, PlanPriceRow } from '@/types';
 
 async function getExchangeRates(): Promise<ExchangeRate[]> {
   if (!supabase) return mockRates;
@@ -161,4 +161,71 @@ export async function getPriceHistory(
     currency: r.currency,
     recordedAt: r.recorded_at,
   }));
+}
+
+/**
+ * Returns price rows for a specific plan (plan-level prices).
+ * Falls back to app-level prices if no plan rows exist in Supabase,
+ * or if Supabase is unavailable.
+ */
+export async function getAppPriceTableByPlan(
+  appId: string,
+  planId: string,
+): Promise<PlanPriceRow[]> {
+  if (!supabase) return [];
+
+  const { data, error } = await supabase
+    .from('current_prices')
+    .select('country_code, price, currency, updated_at, plan_id')
+    .eq('app_id', appId)
+    .eq('plan_id', planId)
+    .gt('price', 0);
+
+  if (error || !data?.length) return [];
+
+  // Fetch plan name
+  const { data: planData } = await supabase
+    .from('plans')
+    .select('name, billing_period')
+    .eq('id', planId)
+    .single();
+
+  const planName = planData?.name ?? planId;
+  const billingPeriod = planData?.billing_period ?? 'monthly';
+
+  const [rates, countries] = await Promise.all([
+    getExchangeRates(),
+    supabase.from('countries').select('code, name, currency, flag').then(
+      ({ data: cd }) => cd ?? mockCountries,
+    ),
+  ]);
+
+  const rows: PlanPriceRow[] = data
+    .map((p) => {
+      const country = (countries as typeof mockCountries).find((c) => c.code === p.country_code);
+      if (!country) return null;
+      return {
+        country,
+        price: Number(p.price),
+        currency: p.currency,
+        priceUSD: calcUSD(Number(p.price), p.currency, rates),
+        priceCNY: calcCNY(Number(p.price), p.currency, rates),
+        rank: 0,
+        total: data.length,
+        isLowest: false,
+        updatedAt: p.updated_at?.slice(0, 10) ?? '',
+        planId,
+        planName,
+        billingPeriod,
+      };
+    })
+    .filter(Boolean) as PlanPriceRow[];
+
+  rows.sort((a, b) => a.priceUSD - b.priceUSD);
+  rows.forEach((row, i) => {
+    row.rank = i + 1;
+    row.isLowest = i === 0;
+  });
+
+  return rows;
 }

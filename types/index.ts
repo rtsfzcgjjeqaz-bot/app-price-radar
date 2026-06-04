@@ -70,3 +70,20 @@ export interface ChatMessage {
   content: string;
   timestamp: number;
 }
+
+export interface Plan {
+  id: string;
+  appId: string;
+  name: string;
+  billingPeriod: 'monthly' | 'annual' | 'one_time' | 'free';
+  basePriceUsd: number;
+  isDefault: boolean;
+  description: string;
+  features: string[];
+}
+
+export interface PlanPriceRow extends PriceRow {
+  planId: string;
+  planName: string;
+  billingPeriod: string;
+}

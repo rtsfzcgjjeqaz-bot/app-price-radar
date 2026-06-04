@@ -1,0 +1,42 @@
+name: Daily Price Update
+
+on:
+  schedule:
+    # 02:00 UTC daily — after Frankfurter/ECB publishes new rates (~16:00 CET previous day)
+    - cron: '0 2 * * *'
+  workflow_dispatch: # allow manual trigger from GitHub Actions UI
+
+jobs:
+  update:
+    name: Update prices and exchange rates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: 1 — Update exchange rates (Frankfurter API)
+        run: npx tsx scripts/update-fx.ts
+
+      - name: 2 — Update one-time paid app prices (iTunes Lookup API)
+        run: npx tsx scripts/update-itunes.ts
+
+      - name: 3 — Snapshot current prices into price_history
+        run: npx tsx scripts/update-history.ts
+
+      - name: Summary
+        run: echo "Daily update complete $(date -u +%Y-%m-%dT%H:%M:%SZ)"

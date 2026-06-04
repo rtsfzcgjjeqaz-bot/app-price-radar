@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "update:fx": "tsx scripts/update-fx.ts",
+    "update:itunes": "tsx scripts/update-itunes.ts",
+    "update:history": "tsx scripts/update-history.ts",
+    "update:all": "npm run update:fx && npm run update:itunes && npm run update:history",
+    "crawl:create-jobs": "tsx scripts/crawl-create-jobs.ts",
+    "crawl:itunes": "tsx scripts/crawl-itunes.ts",
+    "crawl:run": "tsx scripts/crawl-run.ts",
+    "check:env": "tsx scripts/check-env.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.107.0",
@@ -21,9 +29,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }
