@@ -65,6 +65,34 @@ export const en = {
   app_no_data: 'No price data available.',
   app_disclaimer: 'Prices are for reference only. Exchange rates are approximate.',
 
+  // Table headers
+  table_rank: 'Rank',
+  table_country: 'Country / Region',
+  table_price: 'Price',
+  table_usd: 'USD',
+  table_cny: 'CNY',
+  table_updated: 'Updated',
+  table_app: 'App',
+  table_category: 'Category',
+  table_global_rank: 'Global Rank',
+  table_lowest_badge: 'Lowest',
+  table_best_badge: 'Best',
+
+  // AppCard
+  card_lowest_price: 'lowest price',
+  card_free: 'Free',
+  card_no_data: 'No data',
+
+  // Data source indicator
+  source_label: 'Data:',
+  source_supabase: 'Supabase',
+  source_mock: 'Mock',
+
+  // Homepage section titles (hardcoded replacements)
+  section_popular_title: 'Popular Apps',
+  section_best_value_title: 'Best Value Apps',
+  section_recent_title: 'Recently Updated',
+
   // Country detail
   country_apps_available: 'apps available',
   country_global_best: 'Global Best Prices',
@@ -100,6 +128,12 @@ export const en = {
   ranking_col_savings: 'Savings',
   ranking_col_regions: 'Regions',
   ranking_best: 'best',
+  ranking_footer_app: 'Prices in USD. Savings = (highest − lowest) / highest × 100%.',
+  ranking_footer_country: 'Average price calculated from available apps in each region.',
+  ranking_regions_label: 'Regions',
+  ranking_gap_label: '% gap',
+  country_apps_count: '{{n}} apps available',
+  app_data_updated: 'Data updated:',
 
   // Data Sources
   ds_title: 'Data Sources',

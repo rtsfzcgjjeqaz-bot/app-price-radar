@@ -67,6 +67,34 @@ export const zh: Record<LocaleKey, string> = {
   app_no_data: '暂无价格数据。',
   app_disclaimer: '价格仅供参考，汇率为近似值。',
 
+  // Table headers
+  table_rank: '排名',
+  table_country: '国家 / 地区',
+  table_price: '价格',
+  table_usd: 'USD',
+  table_cny: 'CNY',
+  table_updated: '更新时间',
+  table_app: 'App',
+  table_category: '分类',
+  table_global_rank: '全球排名',
+  table_lowest_badge: '最低',
+  table_best_badge: '最优',
+
+  // AppCard
+  card_lowest_price: '最低价',
+  card_free: '免费',
+  card_no_data: '暂无数据',
+
+  // Data source indicator
+  source_label: '数据来源：',
+  source_supabase: 'Supabase',
+  source_mock: '模拟数据',
+
+  // Homepage section titles
+  section_popular_title: '热门 App',
+  section_best_value_title: '最超值 App',
+  section_recent_title: '最近更新',
+
   // Country detail
   country_apps_available: '个 App 可用',
   country_global_best: '全球最低价',
@@ -102,6 +130,12 @@ export const zh: Record<LocaleKey, string> = {
   ranking_col_savings: '节省',
   ranking_col_regions: '地区数',
   ranking_best: '最低价',
+  ranking_footer_app: '价格单位为 USD。节省幅度 = (最高价 − 最低价) / 最高价 × 100%。',
+  ranking_footer_country: '平均价格基于各地区可用 App 计算。',
+  ranking_regions_label: '个地区',
+  ranking_gap_label: '% 价差',
+  country_apps_count: '{{n}} 个 App 可用',
+  app_data_updated: '数据更新时间：',
 
   // Data Sources
   ds_title: '数据来源',

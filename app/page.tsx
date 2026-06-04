@@ -162,7 +162,7 @@ export default function Home() {
 
         {/* Popular Apps */}
         <section>
-          <SectionHeader title="Popular Apps" action={{ label: t('section_view_all'), href: '/search' }} />
+          <SectionHeader title={t('section_popular_title')} action={{ label: t('section_view_all'), href: '/search' }} />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {hotApps.map(({ app, lowest }) => (
               <AppCard key={app.id} app={app} lowestPrice={lowest?.priceUSD} lowestCurrency="USD" lowestCountryFlag={lowest?.country.flag} />
@@ -173,9 +173,9 @@ export default function Home() {
         {/* Best Value */}
         <section>
           <SectionHeader
-            title="Best Value Apps"
+            title={t('section_best_value_title')}
             sub={t('section_best_value_sub')}
-            action={{ label: t('section_view_all'), href: '/cheapest' }}
+            action={{ label: t('section_view_all'), href: '/app-ranking' }}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {lowPriceApps.map(({ app, lowest }) => (
@@ -202,7 +202,7 @@ export default function Home() {
 
         {/* Recently Updated */}
         <section>
-          <SectionHeader title="Recently Updated" />
+          <SectionHeader title={t('section_recent_title')} />
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
             {appsWithPrices.slice(0, 6).map(({ app, lowest }, i) => (
               <Link

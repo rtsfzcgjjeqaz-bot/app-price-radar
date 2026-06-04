@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useLocale } from '@/lib/useLocale';
 import type { CountryAppRow } from '@/types';
 import AppIcon from './AppIcon';
 
@@ -9,18 +12,19 @@ interface Props {
 }
 
 export default function CountryAppPriceTable({ rows, currency }: Props) {
+  const { t } = useLocale();
   return (
     <div className="overflow-x-auto rounded-2xl border border-gray-100">
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wide">
-            <th className="px-4 py-3 text-left font-medium">App</th>
-            <th className="px-4 py-3 text-left font-medium">Category</th>
-            <th className="px-4 py-3 text-right font-medium">Price {currency && `(${currency})`}</th>
-            <th className="px-4 py-3 text-right font-medium">USD</th>
-            <th className="px-4 py-3 text-right font-medium">CNY</th>
-            <th className="px-4 py-3 text-center font-medium">Global Rank</th>
-            <th className="px-4 py-3 text-center font-medium">Updated</th>
+            <th className="px-4 py-3 text-left font-medium">{t('table_app')}</th>
+            <th className="px-4 py-3 text-left font-medium">{t('table_category')}</th>
+            <th className="px-4 py-3 text-right font-medium">{t('table_price')} {currency && `(${currency})`}</th>
+            <th className="px-4 py-3 text-right font-medium">{t('table_usd')}</th>
+            <th className="px-4 py-3 text-right font-medium">{t('table_cny')}</th>
+            <th className="px-4 py-3 text-center font-medium">{t('table_global_rank')}</th>
+            <th className="px-4 py-3 text-center font-medium">{t('table_updated')}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-50">
@@ -57,7 +61,7 @@ export default function CountryAppPriceTable({ rows, currency }: Props) {
                   </span>
                   {row.isLowest && (
                     <span className="text-xs px-1.5 py-0.5 bg-green-100 text-green-700 rounded-full font-medium">
-                      Best
+                      {t('table_best_badge')}
                     </span>
                   )}
                 </div>
