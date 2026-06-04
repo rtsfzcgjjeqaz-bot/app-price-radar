@@ -12,9 +12,10 @@ import type { Country } from '@/types';
 
 interface Props {
   country: Country;
+  usingSupabase?: boolean;
 }
 
-export default function CountryDetailClient({ country }: Props) {
+export default function CountryDetailClient({ country, usingSupabase = false }: Props) {
   const allRows = getCountryAppPriceTable(country.code);
   const ranking = getCountryRanking();
   const myRank = ranking.find((r) => r.country.code === country.code);
@@ -59,6 +60,20 @@ export default function CountryDetailClient({ country }: Props) {
             <p className="text-gray-400 text-sm">
               {country.currency} · {country.code} · {allRows.length} apps available
             </p>
+          </div>
+          <div className="ml-auto flex items-center gap-1.5 text-xs">
+            <span className="text-gray-400">Data:</span>
+            {usingSupabase ? (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Supabase
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 border border-gray-200 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                Mock
+              </span>
+            )}
           </div>
         </div>
 

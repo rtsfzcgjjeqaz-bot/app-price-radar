@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
-import { apps } from '@/mock/apps';
-import { getAppPriceTable } from '@/lib/price';
+import { getAppById } from '@/lib/db/apps';
+import { getAppPriceTable } from '@/lib/db/prices';
+import { isSupabaseAvailable } from '@/lib/supabase/client';
 import PriceTable from '@/components/PriceTable';
 import AppIcon from '@/components/AppIcon';
 import type { Metadata } from 'next';
@@ -11,9 +12,9 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const app = apps.find((a) => a.id === id);
+  const app = await getAppById(id);
   if (!app) return { title: 'App Not Found' };
-  const table = getAppPriceTable(app.id);
+  const table = await getAppPriceTable(app.id);
   const lowest = table[0];
   return {
     title: `${app.name} — Global App Store Prices`,
@@ -28,16 +29,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AppDetailPage({ params }: Props) {
   const { id } = await params;
-  const app = apps.find((a) => a.id === id);
+  const [app, priceTable] = await Promise.all([
+    getAppById(id),
+    getAppPriceTable(id),
+  ]);
+
   if (!app) notFound();
 
-  const priceTable = getAppPriceTable(app.id);
   const lowest = priceTable[0];
   const highest = priceTable[priceTable.length - 1];
   const savings =
     highest && lowest
       ? Math.round(((highest.priceUSD - lowest.priceUSD) / highest.priceUSD) * 100)
       : 0;
+
+  const usingSupabase = isSupabaseAvailable();
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -86,10 +92,26 @@ export default async function AppDetailPage({ params }: Props) {
 
       {/* Price Table */}
       <div>
-        <h2 className="text-lg font-bold text-gray-900 mb-4">
-          Global Price Comparison
-          <span className="ml-2 text-sm font-normal text-gray-400">({priceTable.length} regions)</span>
-        </h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold text-gray-900">
+            Global Price Comparison
+            <span className="ml-2 text-sm font-normal text-gray-400">({priceTable.length} regions)</span>
+          </h2>
+          <div className="flex items-center gap-1.5 text-xs">
+            <span className="text-gray-400">Data:</span>
+            {usingSupabase ? (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Supabase
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 border border-gray-200 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                Mock
+              </span>
+            )}
+          </div>
+        </div>
         {priceTable.length > 0 ? (
           <PriceTable rows={priceTable} />
         ) : (

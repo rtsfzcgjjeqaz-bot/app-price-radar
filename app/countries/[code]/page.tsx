@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { countries } from '@/mock/countries';
+import { getCountryByCode } from '@/lib/db/countries';
+import { isSupabaseAvailable } from '@/lib/supabase/client';
 import CountryDetailClient from './CountryDetailClient';
 import type { Metadata } from 'next';
 
@@ -9,7 +10,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { code } = await params;
-  const country = countries.find((c) => c.code === code.toUpperCase());
+  const country = await getCountryByCode(code.toUpperCase());
   if (!country) return { title: 'Country Not Found' };
   return {
     title: `${country.flag} ${country.name} App Store Prices — App Price Radar`,
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CountryDetailPage({ params }: Props) {
   const { code } = await params;
-  const country = countries.find((c) => c.code === code.toUpperCase());
+  const country = await getCountryByCode(code.toUpperCase());
   if (!country) notFound();
-  return <CountryDetailClient country={country} />;
+  return <CountryDetailClient country={country} usingSupabase={isSupabaseAvailable()} />;
 }
