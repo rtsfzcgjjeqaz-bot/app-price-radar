@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist);
+}
+
+body {
+  font-family: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+.chat-markdown p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+.chat-markdown ul {
+  margin: 0.25rem 0;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+.chat-markdown li {
+  margin: 0.1rem 0;
+}
+.chat-markdown strong {
+  font-weight: 600;
+}
+.chat-markdown em {
+  font-style: italic;
+  opacity: 0.8;
+}
