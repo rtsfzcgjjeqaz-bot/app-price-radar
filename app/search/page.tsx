@@ -2,31 +2,40 @@
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Suspense, useState, useEffect } from 'react';
-import { search } from '@/lib/search';
 import AppCard from '@/components/AppCard';
-import { getAppPriceTable } from '@/lib/price';
 import Link from 'next/link';
+import type { SearchResult } from '@/types';
 
 function SearchResults() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const q = searchParams.get('q') ?? '';
   const [input, setInput] = useState(q);
+  const [results, setResults] = useState<SearchResult[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => { setInput(q); }, [q]);
 
-  const results = q ? search(q) : [];
-  const appResults = results.filter((r) => r.type === 'app');
-  const countryResults = results.filter((r) => r.type === 'country');
+  useEffect(() => {
+    if (!q) { setResults([]); return; }
+    setLoading(true);
+    fetch(`/api/search?q=${encodeURIComponent(q)}`)
+      .then((r) => r.json())
+      .then((data) => setResults(data.results ?? []))
+      .catch(() => setResults([]))
+      .finally(() => setLoading(false));
+  }, [q]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (input.trim()) router.push(`/search?q=${encodeURIComponent(input.trim())}`);
   }
 
+  const appResults = results.filter((r) => r.type === 'app');
+  const countryResults = results.filter((r) => r.type === 'country');
+
   return (
     <div className="space-y-8">
-      {/* 搜索框 */}
       <form onSubmit={handleSubmit} className="flex gap-3">
         <input
           type="text"
@@ -44,7 +53,6 @@ function SearchResults() {
         </button>
       </form>
 
-      {/* 空状态 */}
       {!q && (
         <div className="text-center py-20 text-gray-400">
           <div className="text-4xl mb-4">🔍</div>
@@ -52,39 +60,36 @@ function SearchResults() {
         </div>
       )}
 
-      {/* 无结果 */}
-      {q && !results.length && (
+      {q && loading && (
+        <div className="text-center py-20 text-gray-400">
+          <div className="text-4xl mb-4">⏳</div>
+          <p>Searching...</p>
+        </div>
+      )}
+
+      {q && !loading && !results.length && (
         <div className="text-center py-20 text-gray-400">
           <div className="text-4xl mb-4">😕</div>
           <p>No results found for &ldquo;{q}&rdquo;</p>
         </div>
       )}
 
-      {/* App 结果 */}
       {appResults.length > 0 && (
         <section>
           <h2 className="text-lg font-bold text-gray-900 mb-4">
             Apps <span className="text-gray-400 font-normal text-base">({appResults.length})</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {appResults.map((r) => {
-              const table = getAppPriceTable(r.app!.id);
-              const lowest = table[0];
-              return (
-                <AppCard
-                  key={r.app!.id}
-                  app={r.app!}
-                  lowestPrice={lowest?.priceUSD}
-                  lowestCurrency="USD"
-                  lowestCountryFlag={lowest?.country.flag}
-                />
-              );
-            })}
+            {appResults.map((r) => (
+              <AppCard
+                key={r.app!.id}
+                app={r.app!}
+              />
+            ))}
           </div>
         </section>
       )}
 
-      {/* 国家结果 */}
       {countryResults.length > 0 && (
         <section>
           <h2 className="text-lg font-bold text-gray-900 mb-4">

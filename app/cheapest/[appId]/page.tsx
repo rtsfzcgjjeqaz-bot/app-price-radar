@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { apps } from '@/mock/apps';
-import { getAppPriceTable } from '@/lib/price';
+import { getAllApps, getAppById } from '@/lib/db/apps';
+import { getAppPriceTable } from '@/lib/db/prices';
 import AppIcon from '@/components/AppIcon';
 import type { Metadata } from 'next';
 
@@ -10,14 +10,15 @@ interface Props {
 }
 
 export async function generateStaticParams() {
+  const apps = await getAllApps();
   return apps.map((app) => ({ appId: app.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { appId } = await params;
-  const app = apps.find((a) => a.id === appId);
+  const app = await getAppById(appId);
   if (!app) return { title: 'Not Found' };
-  const table = getAppPriceTable(app.id);
+  const table = await getAppPriceTable(app.id);
   const lowest = table[0];
   return {
     title: `${app.name} Cheapest Country — App Store Price Guide`,
@@ -34,10 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CheapestCountryPage({ params }: Props) {
   const { appId } = await params;
-  const app = apps.find((a) => a.id === appId);
+  const app = await getAppById(appId);
   if (!app) notFound();
 
-  const table = getAppPriceTable(app.id);
+  const table = await getAppPriceTable(app.id);
   if (table.length === 0) notFound();
 
   const lowest = table[0];
@@ -49,7 +50,6 @@ export default async function CheapestCountryPage({ params }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      {/* Breadcrumb */}
       <nav className="text-xs text-gray-400 mb-6 flex items-center gap-2">
         <Link href="/" className="hover:text-blue-600">Home</Link>
         <span>/</span>
@@ -58,7 +58,6 @@ export default async function CheapestCountryPage({ params }: Props) {
         <span className="text-gray-600">Cheapest Country</span>
       </nav>
 
-      {/* Hero */}
       <div className="flex items-start gap-5 mb-10">
         <AppIcon src={app.iconUrl} alt={app.name} size={72} className="w-18 h-18 rounded-2xl shadow-sm shrink-0" />
         <div>
@@ -74,7 +73,6 @@ export default async function CheapestCountryPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Summary cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
         <div className="bg-green-50 border border-green-100 rounded-2xl p-4 text-center">
           <div className="text-2xl mb-1">{lowest.country.flag}</div>
@@ -101,7 +99,6 @@ export default async function CheapestCountryPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Top 5 cheapest */}
       <section className="mb-10">
         <h2 className="text-xl font-bold text-gray-900 mb-4">
           Top 5 Cheapest Regions for {app.name}
@@ -132,7 +129,6 @@ export default async function CheapestCountryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA */}
       <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           <div className="font-semibold text-gray-900 mb-1">See full price table for {app.name}</div>

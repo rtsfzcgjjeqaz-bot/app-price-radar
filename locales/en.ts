@@ -54,6 +54,14 @@ export const en = {
   ai_send: 'Send',
   ai_suggested: 'Suggested Questions',
   ai_initial: "Hi! I'm your App Price assistant.\n\nAsk me things like:\n- \"ChatGPT cheapest country?\"\n- \"Spotify rank in US\"\n- \"ChatGPT and Canva total price comparison\"",
+  ai_loading: 'Thinking...',
+  ai_error_network: 'Network error. Please try again.',
+  ai_suggest_1: 'Which country is cheapest for ChatGPT?',
+  ai_suggest_2: 'Compare Spotify prices by country',
+  ai_suggest_3: 'Which subscriptions have the biggest savings?',
+  ai_suggest_4: 'How reliable is this price data?',
+  ai_suggest_5: 'What does manual_seed mean?',
+  ai_suggest_6: 'Can I compare different plans?',
 
   // App detail
   app_lowest_usd: 'Lowest (USD)',

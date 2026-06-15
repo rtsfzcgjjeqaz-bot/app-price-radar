@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { getAppById } from '@/lib/db/apps';
 import { getAppPriceTable, getAppPriceTableByPlan } from '@/lib/db/prices';
 import { getDefaultPlan, getPlansByApp } from '@/lib/db/plans';
-import { isSupabaseAvailable } from '@/lib/supabase/client';
+import { isSupabaseAvailable } from '@/lib/db/client';
 import AppDetailClient from './AppDetailClient';
 import type { Metadata } from 'next';
 import type { PriceRow } from '@/types';

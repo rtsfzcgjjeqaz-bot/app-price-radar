@@ -19,6 +19,24 @@ const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function resetStuckJobs(supabase: any) {
+  // Jobs stuck in 'running' for more than 2 hours are considered dead — reset to 'pending'.
+  const cutoff = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+  const { data, error } = await supabase
+    .from('crawl_jobs')
+    .update({ status: 'pending', started_at: null, error_message: 'reset: timed out' })
+    .eq('status', 'running')
+    .lt('started_at', cutoff)
+    .select('id');
+
+  if (error) {
+    console.warn('Could not reset stuck jobs:', error.message);
+  } else if (data?.length) {
+    console.log(`  Reset ${data.length} stuck job(s) to pending.`);
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function promoteVerifiedObservations(supabase: any) {
   console.log('Promoting verified observations → current_prices...');
 
@@ -68,6 +86,7 @@ async function snapshotHistory(supabase: any) {
       app_id: r.app_id, country_code: r.country_code,
       price: r.price, currency: r.currency,
       recorded_at: new Date().toISOString(),
+      snapshot_date: today,
       source_type: r.source_type ?? 'manual_seed',
       source_name: r.source_name ?? '',
       source_url: r.source_url ?? '',
@@ -99,6 +118,10 @@ async function main() {
   const limit = limitArg ? `--limit=${limitArg.split('=')[1]}` : '';
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+
+  // Step 0 — reset jobs stuck in 'running' for > 2 hours
+  console.log('\n[0/4] Resetting stuck crawl jobs...');
+  await resetStuckJobs(supabase);
 
   // Step 1 — create jobs
   if (createJobs) {

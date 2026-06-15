@@ -104,16 +104,35 @@ async function main() {
     return;
   }
 
+  // Fetch existing manual_seed rows for these apps so we don't overwrite them.
+  const appIds = [...new Set(rows.map((r) => r.app_id))];
+  const { data: seedRows } = await supabase
+    .from('current_prices')
+    .select('app_id, country_code')
+    .in('app_id', appIds)
+    .eq('source_type', 'manual_seed')
+    .is('plan_id', null);
+
+  const seedSet = new Set(
+    (seedRows ?? []).map((r: { app_id: string; country_code: string }) => `${r.app_id}:${r.country_code}`)
+  );
+
+  const safeRows = rows.filter((r) => !seedSet.has(`${r.app_id}:${r.country_code}`));
+  const protectedCount = rows.length - safeRows.length;
+  if (protectedCount > 0) {
+    console.log(`Skipping ${protectedCount} manual_seed-protected rows.`);
+  }
+
   const { error } = await supabase
     .from('current_prices')
-    .upsert(rows, { onConflict: 'app_id,country_code' });
+    .upsert(safeRows, { onConflict: 'app_id,country_code' });
 
   if (error) {
     console.error('Supabase upsert failed:', error.message);
     process.exit(1);
   }
 
-  console.log(`✓ Upserted ${rows.length} price rows (${today})`);
+  console.log(`✓ Upserted ${safeRows.length} price rows (${today})`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

@@ -20,6 +20,12 @@ const VARS = [
     description: 'Service role key — scripts only, bypasses RLS for writes',
     example: 'eyJ...',
   },
+  {
+    name: 'OPENAI_API_KEY',
+    required: true,
+    description: 'OpenAI API key — server-side only, used by the /api/chat endpoint',
+    example: 'sk-...',
+  },
 ];
 
 let allOk = true;

@@ -14,12 +14,19 @@
     "crawl:create-jobs": "tsx scripts/crawl-create-jobs.ts",
     "crawl:itunes": "tsx scripts/crawl-itunes.ts",
     "crawl:run": "tsx scripts/crawl-run.ts",
-    "check:env": "tsx scripts/check-env.ts"
+    "check:env": "tsx scripts/check-env.ts",
+    "training:snapshot": "tsx scripts/create-training-examples.ts",
+    "training:backfill": "tsx scripts/backfill-training-examples.ts",
+    "features:refresh": "tsx scripts/backfill-scoring-features.ts",
+    "features:backfill": "tsx scripts/backfill-scoring-features.ts --dry-run",
+    "update:plausible": "tsx scripts/update-plausible.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
     "@supabase/supabase-js": "^2.107.0",
     "lucide-react": "^1.17.0",
     "next": "16.2.7",
+    "openai": "^6.42.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0"

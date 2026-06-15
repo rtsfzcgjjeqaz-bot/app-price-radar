@@ -56,6 +56,14 @@ export const zh: Record<LocaleKey, string> = {
   ai_send: '发送',
   ai_suggested: '热门问题',
   ai_initial: '你好！我是 App Price 价格助手。\n\n你可以问我：\n- "ChatGPT 在哪个国家最便宜？"\n- "Spotify 在美国排名第几？"\n- "ChatGPT 和 Canva 哪个国家总价最低？"',
+  ai_loading: '思考中...',
+  ai_error_network: '网络错误，请重试。',
+  ai_suggest_1: 'ChatGPT 哪个国家最便宜？',
+  ai_suggest_2: 'Spotify 各国价格怎么比较？',
+  ai_suggest_3: '哪些订阅最省钱？',
+  ai_suggest_4: '这些价格数据可靠吗？',
+  ai_suggest_5: 'manual_seed 是什么意思？',
+  ai_suggest_6: '可以比较不同套餐吗？',
 
   // App detail
   app_lowest_usd: '最低价 (USD)',

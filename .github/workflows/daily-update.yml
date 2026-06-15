@@ -15,6 +15,8 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      PLAUSIBLE_API_KEY: ${{ secrets.PLAUSIBLE_API_KEY }}
+      PLAUSIBLE_SITE_ID: ${{ secrets.PLAUSIBLE_SITE_ID }}
 
     steps:
       - name: Checkout
@@ -32,11 +34,17 @@ jobs:
       - name: 1 — Update exchange rates (Frankfurter API)
         run: npx tsx scripts/update-fx.ts
 
-      - name: 2 — Update one-time paid app prices (iTunes Lookup API)
-        run: npx tsx scripts/update-itunes.ts
+      - name: 2 — Crawl prices and promote to current_prices
+        run: npx tsx scripts/crawl-run.ts
 
       - name: 3 — Snapshot current prices into price_history
         run: npx tsx scripts/update-history.ts
+
+      - name: 4 — Refresh scoring feature tables
+        run: npx tsx scripts/backfill-scoring-features.ts
+
+      - name: 5 — Ingest Plausible analytics into page_metrics
+        run: npx tsx scripts/update-plausible.ts
 
       - name: Summary
         run: echo "Daily update complete $(date -u +%Y-%m-%dT%H:%M:%SZ)"

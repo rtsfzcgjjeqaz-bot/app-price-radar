@@ -1,9 +1,10 @@
 import { supabase } from './client';
-import { getAppPriceTable as mockGetAppPriceTable, getCountryAppPriceTable as mockGetCountryAppPriceTable, convertPrice } from '@/lib/price';
+import { getAppPriceTable as mockGetAppPriceTable, getCountryAppPriceTable as mockGetCountryAppPriceTable, getCountryRanking as mockGetCountryRanking, convertPrice } from '@/lib/price';
 import { countries as mockCountries } from '@/mock/countries';
 import { apps as mockApps } from '@/mock/apps';
 import { exchangeRates as mockRates } from '@/mock/exchangeRates';
 import type { PriceRow, CountryAppRow, ExchangeRate, PlanPriceRow } from '@/types';
+import type { CountryRankRow } from '@/lib/price';
 
 async function getExchangeRates(): Promise<ExchangeRate[]> {
   if (!supabase) return mockRates;
@@ -83,6 +84,7 @@ export async function getAppPriceTable(appId: string): Promise<PriceRow[]> {
 export async function getCountryAppPriceTable(countryCode: string): Promise<CountryAppRow[]> {
   if (!supabase) return mockGetCountryAppPriceTable(countryCode);
 
+  // Fetch prices for this country
   const { data, error } = await supabase
     .from('current_prices')
     .select('app_id, price, currency, updated_at')
@@ -91,34 +93,51 @@ export async function getCountryAppPriceTable(countryCode: string): Promise<Coun
 
   if (error || !data?.length) return mockGetCountryAppPriceTable(countryCode);
 
-  const [rates, apps] = await Promise.all([
+  const appIds = data.map((p) => p.app_id);
+
+  // Single batched query for all-country prices across the apps in this country.
+  // Replaces the N inner queries (one per app) that existed before.
+  const [rates, appsData, allPricesData] = await Promise.all([
     getExchangeRates(),
-    supabase.from('apps').select('id, app_store_id, name, developer, category, icon_url, description').then(
-      ({ data: ad }) => ad?.map((r) => ({
-        id: r.id, appStoreId: r.app_store_id, name: r.name,
-        developer: r.developer, category: r.category,
-        iconUrl: r.icon_url, description: r.description,
-      })) ?? mockApps,
-    ),
+    supabase
+      .from('apps')
+      .select('id, app_store_id, name, developer, category, icon_url, description')
+      .in('id', appIds)
+      .then(({ data: ad }) =>
+        ad?.map((r) => ({
+          id: r.id, appStoreId: r.app_store_id, name: r.name,
+          developer: r.developer, category: r.category,
+          iconUrl: r.icon_url, description: r.description,
+        })) ?? mockApps,
+      ),
+    supabase
+      .from('current_prices')
+      .select('app_id, price, currency')
+      .in('app_id', appIds)
+      .gt('price', 0)
+      .then(({ data: pd }) => pd ?? []),
   ]);
 
-  const rows: CountryAppRow[] = (await Promise.all(
-    data.map(async (p) => {
-      const app = (apps as typeof mockApps).find((a) => a.id === p.app_id);
+  // Group all-country USD prices by app_id for rank computation
+  const usdByApp = new Map<string, number[]>();
+  for (const p of allPricesData) {
+    const usd = calcUSD(Number(p.price), p.currency, rates);
+    if (usd > 0) {
+      const list = usdByApp.get(p.app_id) ?? [];
+      list.push(usd);
+      usdByApp.set(p.app_id, list);
+    }
+  }
+  // Sort each app's price list once
+  for (const list of usdByApp.values()) list.sort((a, b) => a - b);
+
+  const rows: CountryAppRow[] = data
+    .map((p) => {
+      const app = (appsData as typeof mockApps).find((a) => a.id === p.app_id);
       if (!app) return null;
 
-      // get rank for this app across all countries
-      const { data: allPrices } = await supabase!
-        .from('current_prices')
-        .select('price, currency')
-        .eq('app_id', p.app_id)
-        .gt('price', 0);
-
-      const usdPrices = (allPrices ?? [])
-        .map((x) => calcUSD(Number(x.price), x.currency, rates))
-        .sort((a, b) => a - b);
-
       const myUSD = calcUSD(Number(p.price), p.currency, rates);
+      const usdPrices = usdByApp.get(p.app_id) ?? [];
       const rank = usdPrices.findIndex((v) => v >= myUSD) + 1;
       const total = usdPrices.length;
 
@@ -128,13 +147,13 @@ export async function getCountryAppPriceTable(countryCode: string): Promise<Coun
         currency: p.currency,
         priceUSD: myUSD,
         priceCNY: calcCNY(Number(p.price), p.currency, rates),
-        rank,
+        rank: rank || 1,
         total,
         isLowest: rank === 1,
         updatedAt: p.updated_at?.slice(0, 10) ?? '',
       };
-    }),
-  )).filter(Boolean) as CountryAppRow[];
+    })
+    .filter(Boolean) as CountryAppRow[];
 
   return rows;
 }
@@ -227,5 +246,53 @@ export async function getAppPriceTableByPlan(
     row.isLowest = i === 0;
   });
 
+  return rows;
+}
+
+export async function getCountryRanking(): Promise<CountryRankRow[]> {
+  if (!supabase) return mockGetCountryRanking();
+
+  const { data: priceData, error } = await supabase
+    .from('current_prices')
+    .select('country_code, app_id, price, currency')
+    .gt('price', 0);
+
+  if (error || !priceData?.length) return mockGetCountryRanking();
+
+  const [rates, countriesData] = await Promise.all([
+    getExchangeRates(),
+    supabase.from('countries').select('code, name, currency, flag').then(
+      ({ data: cd }) => cd ?? mockCountries,
+    ),
+  ]);
+
+  const usdPrices = priceData
+    .map((p) => ({
+      countryCode: p.country_code,
+      appId: p.app_id,
+      priceUSD: calcUSD(Number(p.price), p.currency, rates),
+    }))
+    .filter((p) => p.priceUSD > 0);
+
+  // For each app, find which country has its lowest USD price
+  const appIds = [...new Set(usdPrices.map((p) => p.appId))];
+  const lowestCountryByApp = new Map<string, string>();
+  for (const appId of appIds) {
+    const forApp = usdPrices.filter((p) => p.appId === appId);
+    forApp.sort((a, b) => a.priceUSD - b.priceUSD);
+    if (forApp.length > 0) lowestCountryByApp.set(appId, forApp[0].countryCode);
+  }
+
+  const rows: CountryRankRow[] = (countriesData as typeof mockCountries).map((country) => {
+    const forCountry = usdPrices.filter((p) => p.countryCode === country.code);
+    const appCount = forCountry.length;
+    const totalPriceUSD = Math.round(forCountry.reduce((s, p) => s + p.priceUSD, 0) * 100) / 100;
+    const avgPriceUSD = appCount > 0 ? Math.round((totalPriceUSD / appCount) * 100) / 100 : Infinity;
+    const lowestPriceCount = [...lowestCountryByApp.values()].filter((c) => c === country.code).length;
+    return { country, appCount, avgPriceUSD, totalPriceUSD, lowestPriceCount, rank: 0 };
+  });
+
+  rows.sort((a, b) => a.avgPriceUSD - b.avgPriceUSD);
+  rows.forEach((r, i) => { r.rank = i + 1; });
   return rows;
 }

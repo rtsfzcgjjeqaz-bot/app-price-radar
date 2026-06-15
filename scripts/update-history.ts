@@ -55,6 +55,7 @@ async function main() {
       price: row.price,
       currency: row.currency,
       recorded_at: new Date().toISOString(),
+      snapshot_date: today,
       source_type: row.source_type ?? 'manual_seed',
       source_name: row.source_name ?? 'App Price Radar seed',
       source_url: row.source_url ?? '',

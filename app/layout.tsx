@@ -8,6 +8,7 @@ import { LocaleProvider } from "@/lib/useLocale";
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://apppriceradar.com'),
   title: {
     default: "App Price Radar — Compare App Store Prices Worldwide",
     template: "%s | App Price Radar",

@@ -1,6 +1,6 @@
 import { getAllApps } from '@/lib/db/apps';
 import { getAppPriceTable } from '@/lib/db/prices';
-import { isSupabaseAvailable } from '@/lib/supabase/client';
+import { isSupabaseAvailable } from '@/lib/db/client';
 import AppRankingClient, { type AppRankRow } from './AppRankingClient';
 import type { Metadata } from 'next';
 

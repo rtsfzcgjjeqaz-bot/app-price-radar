@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getCountryByCode } from '@/lib/db/countries';
-import { isSupabaseAvailable } from '@/lib/supabase/client';
+import { isSupabaseAvailable } from '@/lib/db/client';
 import CountryDetailClient from './CountryDetailClient';
 import type { Metadata } from 'next';
 
